@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  {% load staticfiles  %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -46,43 +44,34 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="#">Twitter</a>
-          <a class="nav-item nav-link" href="{% static 'sadrul.pdf' %}">Resume</a>
-          <a class="nav-item nav-link" href="#">Blog</a>
+          <a class="nav-item nav-link" href="#">Resume</a>
+          <a class="nav-item nav-link active" href="#">Blog</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main role="main">
+    <div class="container">
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Hi, I'm Sadrul</h1>
-        <p class="lead text-muted">Hi, my name is Sadrul Amin and I love to make Django websites. It is the thrill of handling the requests that the people want!</p>
-        <p>
-          <a href="mailto:sakithy@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src="{% static 'me.jpg' %}" height="300" alt="">
-      </div>
-    </section>
+      <h1 class="text-center pt-3"> Welcome to Sadrul's Blog</h1>
 
-    <div class="album py-5 bg-light">
-      <div class="container">
 
-        <div class="row">
+      <br>
+      <br>
+      <h2>Latest Posts</h2>
 
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{ job.image.url}}" alt=""/>
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
+            {% for blog in blogs.all %}
+              <a href="#"><h3>{{ blog.title }}</h3></a>
+              {{ blog.date }}
+              <br>
+              <img class="img-fluid" src="{{ blog.image.url}}" height=200 width=200 alt="">
+              <br>
+              <p>{{ blog.summary }}</p>
+            {% endfor %}
+
+      <hr>
+
     </div>
 
   </main>
